@@ -1,3 +1,5 @@
 .DS_Store
 FNO_wave_equation/dataset/
 *.npy
+*.png
+*.jpg
