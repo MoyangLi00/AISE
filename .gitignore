@@ -3,3 +3,6 @@ FNO_wave_equation/dataset/
 *.npy
 *.png
 *.jpg
+PDE_Find/AISE-project3-data.tar
+PDE_Find/__pycache__/
+PDE_Find/dataset/*.npz
