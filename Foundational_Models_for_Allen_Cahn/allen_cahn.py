@@ -239,7 +239,7 @@ def main():
 
     # TODO: Generate OOD test datasets (high frequency, sharp transitions)
     # with smaller epsilon values leading to sharper interfaces
-    epsilons_ood = [0.003, 0.002, 0.001]
+    epsilons_ood = [0.05, 0.03, 0.025, 0.003, 0.002, 0.001]
     results = Parallel(n_jobs=-1)(delayed(run_gen_dataset)(n_test, epsilon, ic_type, base_seed + n_train + n_test, 'ood') for epsilon in epsilons_ood for ic_type in ['fourier', 'gmm', 'piecewise'])
     data = {}
     for epsilon in epsilons_ood:
