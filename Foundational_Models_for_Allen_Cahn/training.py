@@ -53,6 +53,9 @@ def train_model(model, train_data, val_data, epsilon_values, time_points,
     
     model = model.to(device)
     best_val_loss = float('inf')
+
+    training_losses = []
+    validation_losses = []
     
     for epoch in range(epochs):
         # Update curriculum if needed
@@ -103,8 +106,11 @@ def train_model(model, train_data, val_data, epsilon_values, time_points,
         if val_loss < best_val_loss:
             best_val_loss = val_loss
             torch.save(model.state_dict(), 'best_model.pt')
+
+        training_losses.append(train_loss)
+        validation_losses.append(val_loss)
     
-    return model
+    return model, training_losses, validation_losses
 
 # Example curriculum steps
 curriculum_steps = [
